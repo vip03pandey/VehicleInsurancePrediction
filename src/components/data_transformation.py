@@ -61,7 +61,6 @@ class DataTransformation:
                 remainder='passthrough'  
             )
 
-            # Wrapping everything in a single pipeline
             final_pipeline = Pipeline(steps=[("Preprocessor", preprocessor)])
             logging.info("Final Pipeline Ready!!")
             logging.info("Exited get_data_transformer_object method of DataTransformation class")
@@ -112,7 +111,6 @@ class DataTransformation:
             if not self.data_validation_artifact.validation_status:
                 raise Exception(self.data_validation_artifact.message)
 
-            # Load train and test data
             train_df = self.read_data(file_path=self.data_ingestion_artifact.trained_file_path)
             test_df = self.read_data(file_path=self.data_ingestion_artifact.test_file_path)
             logging.info("Train-Test data loaded")

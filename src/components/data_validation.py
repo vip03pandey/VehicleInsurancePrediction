@@ -96,7 +96,7 @@ class DataValidation:
             train_df, test_df = (DataValidation.read_data(file_path=self.data_ingestion_artifact.trained_file_path),
                                  DataValidation.read_data(file_path=self.data_ingestion_artifact.test_file_path))
 
-            # Checking col len of dataframe for train/test df
+            
             status = self.validate_number_of_columns(dataframe=train_df)
             if not status:
                 validation_error_msg += f"Columns are missing in training dataframe. "
@@ -109,7 +109,7 @@ class DataValidation:
             else:
                 logging.info(f"All required columns present in testing dataframe: {status}")
 
-            # Validating col dtype for train/test df
+
             status = self.is_column_exist(df=train_df)
             if not status:
                 validation_error_msg += f"Columns are missing in training dataframe. "
@@ -130,11 +130,9 @@ class DataValidation:
                 validation_report_file_path=self.data_validation_config.validation_report_file_path
             )
 
-            # Ensure the directory for validation_report_file_path exists
             report_dir = os.path.dirname(self.data_validation_config.validation_report_file_path)
             os.makedirs(report_dir, exist_ok=True)
 
-            # Save validation status and message to a JSON file
             validation_report = {
                 "validation_status": validation_status,
                 "message": validation_error_msg.strip()

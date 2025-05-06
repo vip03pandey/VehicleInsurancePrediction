@@ -9,7 +9,7 @@ This project focuses on building an end-to-end Vehicle Insurance Prediction Syst
 
 Insurance companies want to predict whether a customer will opt for vehicle insurance, based on their past behavior and demographic profile. This helps in targeted marketing and resource optimization.
 
-
+```
 📂 Project Structure
 vehicle-insurance-prediction/
 │
@@ -35,8 +35,8 @@ vehicle-insurance-prediction/
 └── .dockerignore, .gitignore
 ```
 
----
 
+```
 ⚙️ Major Features
 
  ✅ 1. Data Pipeline
@@ -59,7 +59,6 @@ vehicle-insurance-prediction/
  Deployed using self-hosted GitHub runner on EC2
  EC2 instance configured with Docker and SSH
 
----
 
 🗃️ MongoDB Atlas Integration
 
@@ -67,14 +66,14 @@ vehicle-insurance-prediction/
  IP whitelisting and user/password auth
  Connection string handled via environment variables
 
---- ☁️ AWS Integration
+ ☁️ AWS Integration
 
 S3: Used to store trained models
 EC2: Hosts the deployed Flask app
 ECR: Docker image repository
 IAM: Used for secure access via access keys
 
----
+
 
 🔄 CI/CD Workflow
 
@@ -85,8 +84,8 @@ IAM: Used for secure access via access keys
     Pushed to AWS ECR
     SSH EC2 instance via self-hosted runner
     Pulls latest Docker image and runs the app
+```
 
----
 
 🧪 Local Setup Instructions
 
@@ -108,7 +107,7 @@ export MONGODB_URL="mongodb+srv://<username>:<password>@cluster.mongodb.net/?...
 python src/app.py
 ```
 
----
+
 
 🌐 Hosted App
 
@@ -118,27 +117,18 @@ Once deployed:
 http://<EC2-public-ip>:5080/
 ```
 
----
 
+```
 📊 Sample Inputs (For Prediction)
 
 | Feature        | Type        | Example  |
 | -------------- | ----------- | -------- |
 | Age            | Integer     | 35       |
 | Gender         | Categorical | Male     |
-| Annual Income  | Float       | 60000    |
 | Vehicle Age    | Categorical | < 1 Year |
 | Vehicle Damage | Binary      | Yes      |
 
----
 
-🚀 Future Enhancements
-
- Integration with MLflow for experiment tracking
- Real-time monitoring using Prometheus + Grafana
- User authentication (JWT-based)
- Multiple model comparison with AutoML
-
----
+```
 
 
